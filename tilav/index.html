@@ -177,20 +177,16 @@ a#logo {
 <script async data-cfasync="false" data-size="300x250" data-category="common" data-id="dl-banner-300x250" data-zone="8462241" src="//staipseegnauw.com/btag.min.js"></script></script>
 </div>
 
-
 <script>
-  // Lấy tất cả các phần tử có class là "banner_wrapper"
+
   var bannerWrappers = document.querySelectorAll('.banner_wrapper');
 
-  // Duyệt qua từng phần tử và chèn nút X vào mỗi phần tử
   bannerWrappers.forEach(function(bannerWrapper) {
-    // Tạo một phần tử button
+
     var xButton = document.createElement('button');
 
-    // Thêm nội dung cho nút X
     xButton.innerHTML = '&times;';
 
-    // Tạo kiểu cho nút X để làm đẹp
     xButton.style.position = 'absolute';
     xButton.style.top = '0';
     xButton.style.right = '0';
@@ -206,13 +202,11 @@ a#logo {
     xButton.style.borderRadius = '2px';
     xButton.style.transition = 'background-color 0.3s';
 
-    // Tạm ẩn nút X và xuất hiện sau 3s
     xButton.style.display = 'none';
     setTimeout(function() {
       xButton.style.display = 'block';
     }, 3000);
 
-    // Hiệu ứng hover
     xButton.addEventListener('mouseover', function() {
       xButton.style.backgroundColor = '#e0e0e0';
     });
@@ -221,19 +215,20 @@ a#logo {
       xButton.style.backgroundColor = '#ffffff';
     });
 
-    // Gán sự kiện click cho nút X để ẩn chính banner đó
     xButton.addEventListener('click', function() {
-      bannerWrapper.style.display = 'none';
+      bannerWrappers.forEach(function(banner) {
+        banner.style.display = 'none';
+      });
     });
 
-    // Thêm vị trí tương đối cho phần tử cha nếu chưa có
     if (getComputedStyle(bannerWrapper).position === 'static') {
       bannerWrapper.style.position = 'relative';
     }
 
-    // Chèn nút X vào phần tử "banner_wrapper"
     bannerWrapper.appendChild(xButton);
   });
 </script>
 </body>
 </html>
+
+

@@ -182,60 +182,58 @@ a#logo {
  </div>
 <script type='text/javascript' src='//hunterheroiccompassion.com/36/90/26/3690265d36a34f3603b52d3731edc03d.js'></script>
 
-  <script>
-    // Lấy tất cả các phần tử có class là "banner_wrapper"
-    var bannerWrappers = document.querySelectorAll('.banner_wrapper');
+<script>
 
-    // Duyệt qua từng phần tử và chèn nút X vào mỗi phần tử
-    bannerWrappers.forEach(function(bannerWrapper) {
-    // Tạo một phần tử button
+  var bannerWrappers = document.querySelectorAll('.banner_wrapper');
+
+  bannerWrappers.forEach(function(bannerWrapper) {
+
     var xButton = document.createElement('button');
 
-    // Thêm nội dung cho nút X (có thể thay đổi nếu bạn muốn)
     xButton.innerHTML = '&times;';
 
-    // Tạo kiểu cho nút X để làm đẹp
     xButton.style.position = 'absolute';
-    xButton.style.top = '0'; // Có thể điều chỉnh khoảng cách từ trên xuống
-    xButton.style.right = '0'; // Có thể điều chỉnh khoảng cách từ phải sang trái
-    xButton.style.padding = '0 5px'; // Có thể điều chỉnh kích thước nút
+    xButton.style.top = '0';
+    xButton.style.right = '0';
+    xButton.style.padding = '0 5px';
     xButton.style.border = 'none';
-    xButton.style.backgroundColor = '#ffffff'; // Màu nền trắng
-    xButton.style.color = '#000'; // Màu chữ xanh đậm
+    xButton.style.backgroundColor = '#ffffff';
+    xButton.style.color = '#000';
     xButton.style.fontWeight = 'bold';
-    xButton.style.fontSize = '25px'; // Cỡ chữ
-    xButton.style.lineHeight = '24px'; // line-height
+    xButton.style.fontSize = '25px';
+    xButton.style.lineHeight = '24px';
     xButton.style.cursor = 'pointer';
     xButton.style.boxShadow = 'rgb(0, 0, 0) 0px 2px 4px';
     xButton.style.borderRadius = '2px';
-    xButton.style.transition = 'background-color 0.3s'; // Hiệu ứng hoạt hình
+    xButton.style.transition = 'background-color 0.3s';
 
-    // Tạm ẩn nút X và xuất hiện sau 3s
     xButton.style.display = 'none';
     setTimeout(function() {
       xButton.style.display = 'block';
     }, 3000);
 
-    // Hiệu ứng hoạt hình khi hover
     xButton.addEventListener('mouseover', function() {
-    xButton.style.backgroundColor = '#e0e0e0'; // Màu nền xám nhạt
-  });
+      xButton.style.backgroundColor = '#e0e0e0';
+    });
 
     xButton.addEventListener('mouseout', function() {
-    xButton.style.backgroundColor = '#ffffff'; // Màu nền trắng
-  });
-
-    // Gán sự kiện click cho nút X để ẩn phần tử khi được nhấp
-    xButton.addEventListener('click', function() {
-    // Duyệt qua tất cả các phần tử có class "banner_wrapper" và ẩn chúng
-    bannerWrappers.forEach(function(banner) {
-      banner.style.display = 'none';
+      xButton.style.backgroundColor = '#ffffff';
     });
-  });
 
-    // Chèn nút X vào phần tử "banner_wrapper"
+    xButton.addEventListener('click', function() {
+      bannerWrappers.forEach(function(banner) {
+        banner.style.display = 'none';
+      });
+    });
+
+    if (getComputedStyle(bannerWrapper).position === 'static') {
+      bannerWrapper.style.position = 'relative';
+    }
+
     bannerWrapper.appendChild(xButton);
   });
-</script>   
+</script> 
 </body>
 </html>
+
+
